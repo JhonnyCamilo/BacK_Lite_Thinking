@@ -2,25 +2,26 @@ const  {  gql } = require('apollo-server');
 
 const typeDefs = gql`
 type Query {
-        obtenerDatos : [Datos]   
+        obtenerDatos : [Dato]   
           }   
-type Datos {
-        id: ID
+type Dato {
+       
         nombre: String
         direccion: String
         nit: String
         telefono: String
         imagen: String
         }
-input DatosInput {
-        nombre: String
-        direccion: String
-        nit: String
-        telefono: String
-        imagen: String
-        }
+
 type Mutation {  
-        crearDatos(input: DatosInput) : String     
+        crearDato(
+               
+                nombre: String!,
+                direccion: String!,
+                nit: String!,
+                telefono: String!,
+                imagen: String!
+        ): Dato    
     }
 `;
 

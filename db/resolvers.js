@@ -14,16 +14,10 @@ const resolvers = {
     },
         Mutation: {
        
-            crearDatos : async (_, {input}) => {
-                try {
-                    
-                    const datos= new Datos(input);
-                    datos.save();
-                    return "Dato creado exitosamente";
-                } catch (error) {
-                    console.log(error);
-                }
-            }    
+            crearDato: async (_, { nombre, direccion, nit, telefono, imagen }) => {
+                const newDato = new Datos({ nombre, direccion, nit, telefono, imagen   });
+                return await newDato.save();
+              },   
       
     }
    
